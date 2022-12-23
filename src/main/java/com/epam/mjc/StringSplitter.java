@@ -13,6 +13,20 @@ public class StringSplitter {
      * @return List of substrings
      */
     public List<String> splitByDelimiters(String source, Collection<String> delimiters) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        List<String> substrings = new ArrayList<>();
+        String stringDelimiter = "";
+        for(String delimiter: delimiters){
+            stringDelimiter += delimiter + "|";
+        }
+
+        String delimiterForSplit = stringDelimiter.substring(0, stringDelimiter.length()-1);
+
+        String[] elements = source.split(delimiterForSplit);
+        for (String element: elements){
+            if(!element.equals("")){
+                substrings.add(element);
+            }
+        }
+        return substrings;
     }
 }
