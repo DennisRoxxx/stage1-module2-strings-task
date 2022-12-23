@@ -1,5 +1,8 @@
 package com.epam.mjc;
 
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 public class MethodParser {
     
     /**
@@ -41,10 +44,10 @@ public class MethodParser {
 
         MethodSignature signature = new MethodSignature(textArgs[textArgs.length - 1], argList);
         if (textArgs.length == 2) {
-            signature.setReturnType(prefixes[0]);
+            signature.setReturnType(textArgs[0]);
         } else {
-            signature.setAccessModifier(prefixes[0]);
-            signature.setReturnType(prefixes[1]);
+            signature.setAccessModifier(textArgs[0]);
+            signature.setReturnType(textArgs[1]);
         }
         return signature;
     }
